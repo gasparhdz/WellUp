@@ -27,7 +27,7 @@ export default function Login() {
 
     setLoginError('');
     localStorage.setItem('wellup_user', JSON.stringify({ email: normalizedEmail, role }));
-    navigate(role === 'lider' ? '/leader' : '/app');
+    navigate(role === 'lider' ? '/leader' : '/app', { replace: true });
   };
 
   return (

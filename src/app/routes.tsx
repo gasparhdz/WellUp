@@ -6,6 +6,10 @@ import Register from "./components/Register";
 import EmailVerification from "./components/EmailVerification";
 import NotificationSetup from "./components/NotificationSetup";
 import MainApp from "./components/MainApp";
+import Today from "./components/Today";
+import Explore from "./components/Explore";
+import ToolsScreen from "./components/ToolsScreen";
+import Profile from "./components/Profile";
 import LeaderDashboard from "./components/LeaderDashboard";
 import NotFound from "./components/NotFound";
 
@@ -19,7 +23,16 @@ export const router = createBrowserRouter([
       { path: "register", Component: Register },
       { path: "verify-email", Component: EmailVerification },
       { path: "setup-notification", Component: NotificationSetup },
-      { path: "app", Component: MainApp },
+      {
+        path: "app",
+        Component: MainApp,
+        children: [
+          { index: true, Component: Today },
+          { path: "explore", Component: Explore },
+          { path: "herramientas", Component: ToolsScreen },
+          { path: "yo", Component: Profile },
+        ],
+      },
       { path: "leader", Component: LeaderDashboard },
       { path: "*", Component: NotFound },
     ],
